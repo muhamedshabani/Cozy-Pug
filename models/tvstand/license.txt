@@ -1,0 +1,11 @@
+Model Information:
+* title:	TV table
+* source:	https://sketchfab.com/3d-models/tv-table-f72310b7909345bf98156563e907f8ec
+* author:	EgorKotov (https://sketchfab.com/mkotov671)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "TV table" (https://sketchfab.com/3d-models/tv-table-f72310b7909345bf98156563e907f8ec) by EgorKotov (https://sketchfab.com/mkotov671) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

@@ -1,0 +1,11 @@
+Model Information:
+* title:	Leaf Cluster
+* source:	https://sketchfab.com/3d-models/leaf-cluster-56ac98604d4846a3a3940d659658c2bf
+* author:	angieb1970 (https://sketchfab.com/angieb1970)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Leaf Cluster" (https://sketchfab.com/3d-models/leaf-cluster-56ac98604d4846a3a3940d659658c2bf) by angieb1970 (https://sketchfab.com/angieb1970) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

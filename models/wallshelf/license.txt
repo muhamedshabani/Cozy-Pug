@@ -1,0 +1,11 @@
+Model Information:
+* title:	Wall Shelf
+* source:	https://sketchfab.com/3d-models/wall-shelf-d4079640f56045619898e41fd59822a7
+* author:	hlaphoneshwe (https://sketchfab.com/hlaphoneshwe)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Wall Shelf" (https://sketchfab.com/3d-models/wall-shelf-d4079640f56045619898e41fd59822a7) by hlaphoneshwe (https://sketchfab.com/hlaphoneshwe) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
