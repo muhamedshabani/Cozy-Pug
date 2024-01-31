@@ -1,0 +1,17 @@
+html {
+  overflow: hidden;
+}
+
+body {
+  margin: -1px;
+  animation: animate 1s;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
