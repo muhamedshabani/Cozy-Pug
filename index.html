@@ -3,10 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+			href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="styles.css" />
     <title>ThreeJS - Cozy Pug</title>
   </head>
   <body>
+    <div id="helpList" class="visible">
+			<ul>
+				<li><h2>1, 2, 3 - Switch chanels</h2></li>
+				<li><h2>0 - Turn off the TV</h2></li>
+				<li><h2>T - Light switch</h2></li>
+				<li><h2>W - Water the plant</h2></li>
+				<li><h2>E - Move roomba</h2></li>
+				<li><h2>[ - Turn the chair left</h2></li>
+				<li><h2>] - Turn the chair right</h2></li>
+			</ul>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="/node_modules/three/examples/jsm/controls/KeyboardState.js"></script>
@@ -350,6 +368,9 @@
 
         var roombaSteps = 900
         var roombaDirection = false
+
+        var comandTab = true
+
         function update(key) {
           if (key == 'e') {
                 console.log('press');

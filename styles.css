@@ -7,6 +7,23 @@ body {
   animation: animate 1s;
 }
 
+#helpList {
+	position: absolute;
+	margin-top: 7rem;
+	width: 20rem;
+	color: whitesmoke;
+	letter-spacing: 1.5px;
+	font-family: 'Quicksand', sans-serif;
+	background-color: rgba(76, 48, 232, 0.665);
+	border-radius: 0 20px 20px 0;
+	border: 1px solid rgba(245, 245, 245, 0.665);
+}
+
+.visible {
+	visibility: hidden;
+}
+
+
 @keyframes animate {
   0% {
     opacity: 0;
