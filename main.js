@@ -1,4 +1,4 @@
-import { OrbitControls } from 'https://unpkg.com/three@0.122.0/examples/jsm/controls/OrbitControls.js'
+import { OrbitControls } from 'https://unpkg.com/three@0.122.0/examples/jsm/controls/OrbitControls.js';
 let scene,
   camera,
   renderer,
@@ -320,57 +320,46 @@ function init() {
   var maxZplus = (315 * Math.PI) / 180 // limitter for rotating dog and chair
   var maxZminus = (225 * Math.PI) / 180 // limitter for rotating dog and chair
 
-  var roombaSteps = 900
-  var roombaDirection = false
+  //var roombaSteps = 900
+  //var roombaDirection = false
+  //curently removed for maintenance
 
-  var comandTab = true
-
-  function update(key) {
-    if (key == 'e') {
-      console.log('press')
-      if (roombaON == true) {
-        roombaON = false
-        return
-      }
-      roombaON = true
-    }
-
-    if (roombaON == true) {
-      if (roombaSteps == 0) {
-        roombaDirection = true
-      }
-
-      if (roombaSteps == 900) {
-        roombaDirection = false
-      }
-
-      if (roombaDirection == false) {
-        roombaSteps--
-        roomba.position.x += 0.01
-      }
-
-      if (roombaDirection == true) {
-        roombaSteps++
-        roomba.position.x -= 0.01
-      }
-    }
-
-    if (key == 't') {
+  //TV controlls
+  function chanels(chanel){ 
+    var cartoonPNG; 
+    switch (chanel){ 
+      case '0': 
+        cartoonPNG = new THREE.TextureLoader().load('') 
+        break ;
+      case '1': 
+        cartoonPNG = new THREE.TextureLoader().load( 'resource/rickandmorty.jpg' );
+        break; 
+      case '2': 
+        cartoonPNG = new THREE.TextureLoader().load('resource/cartoon.jpg');break; 
+      case '3': 
+        cartoonPNG = new THREE.TextureLoader().load('resource/acihayat.jpg');
+        break; 
+    } 
+      var cartoon = new THREE.Mesh( new THREE.BoxGeometry(0.01, 2, 4), 
+      new THREE.MeshBasicMaterial({ map: cartoonPNG }) ) 
+      cartoon.position.y = 5 
+      cartoon.position.x = -6.9 
+      scene.add(cartoon) 
+  }
+  //Light on/off
+  function lightToggle(){
       if (toggler == true) {
         scene.remove(spotLight)
         scene.add(pointLight)
         toggler = false
-        return
+      }else{
+        scene.remove(pointLight)
+        scene.add(spotLight)
+        toggler = true
       }
-
-      // light off
-      scene.remove(pointLight)
-      scene.add(spotLight)
-      toggler = true
-    }
-
-    // water the plant?
-    if (key == 'w') {
+  }
+  //Gardening kit
+  function waterThePlant(){
       if (maxInc >= inc) {
         var newleaf = flowers
         if (inc % 2 == 0) {
@@ -381,79 +370,40 @@ function init() {
         inc += 1
         scene.add(newleaf)
       }
-    }
-
-    // channels
-    if (key == '1') {
-      var cartoonPNG = new THREE.TextureLoader().load(
-        'resource/rickandmorty.jpg'
-      )
-      var cartoon = new THREE.Mesh(
-        new THREE.BoxGeometry(0.01, 2, 4),
-        new THREE.MeshBasicMaterial({ map: cartoonPNG })
-      )
-      cartoon.position.y = 5
-      cartoon.position.x = -6.9
-      scene.add(cartoon)
-    }
-    if (key == '2') {
-      var cartoonPNG = new THREE.TextureLoader().load('resource/cartoon.jpg')
-      var cartoon = new THREE.Mesh(
-        new THREE.BoxGeometry(0.01, 2, 4),
-        new THREE.MeshBasicMaterial({ map: cartoonPNG })
-      )
-      cartoon.position.y = 5
-      cartoon.position.x = -6.9
-      scene.add(cartoon)
-    }
-    if (key == '3') {
-      var cartoonPNG = new THREE.TextureLoader().load('resource/acihayat.jpg')
-      var cartoon = new THREE.Mesh(
-        new THREE.BoxGeometry(0.01, 2, 4),
-        new THREE.MeshBasicMaterial({ map: cartoonPNG })
-      )
-      cartoon.position.y = 5
-      cartoon.position.x = -6.9
-      scene.add(cartoon)
-    }
-    if (key == '0') {
-      var cartoonPNG = new THREE.TextureLoader().load('')
-      var cartoon = new THREE.Mesh(
-        new THREE.BoxGeometry(0.01, 2, 4),
-        new THREE.MeshBasicMaterial({ map: cartoonPNG })
-      )
-      cartoon.position.y = 5
-      cartoon.position.x = -6.9
-      scene.add(cartoon)
-    }
-
-    if (key == ']') {
-      if (eggchair.rotation.z <= maxZminus) {
-        return
-      }
+  }
+  //Chair rotations
+  function chairSwivle(key){
+    if (key == ']' && !(eggchair.rotation.z <= maxZminus)) {
       eggchair.rotation.z -= 0.01
       dog.rotation.z -= 0.01
-    }
-
-    if (key == '[') {
-      if (eggchair.rotation.z >= maxZplus) {
-        return
-      }
+    }else if(!(eggchair.rotation.z >= maxZplus)){
       eggchair.rotation.z += 0.01
       dog.rotation.z += 0.01
     }
-    if (key == 'c') {
-      if (comandTab == false) {
-        comandTab = true
-        $('#helpList').addClass('visible')
-      } else {
-        comandTab = false
-        $('#helpList').removeClass('visible')
-      }
-    }
   }
-  $(document).keypress(function (event) {
-    update(event.key)
+
+  document.body.addEventListener('keypress', (event)=>{
+    switch (event.key){
+      case '0':
+      case '1':
+      case '2':
+      case '3':
+        chanels(event.key)
+        break;
+      case 't':
+        lightToggle();
+        break;
+      case 'w':
+        waterThePlant();
+        break;
+      case '[':
+      case ']':
+        chairSwivle(event.key);
+        break;
+      case 'c':
+        document.getElementById('helpList').classList.toggle('visible')
+        break;
+    }
   })
 }
 
