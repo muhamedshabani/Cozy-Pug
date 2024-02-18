@@ -327,15 +327,6 @@ function init() {
 
   function update(key) {
     if (key == 'e') {
-      console.log('press')
-      if (roombaON == true) {
-        roombaON = false
-        return
-      }
-      roombaON = true
-    }
-
-    if (roombaON == true) {
       if (roombaSteps == 0) {
         roombaDirection = true
       }
