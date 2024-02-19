@@ -320,6 +320,7 @@ function init() {
 	var maxZplus = (315 * Math.PI) / 180	//limitter for rotating dog and chair
 	var maxZminus = (225 * Math.PI) / 180 // limitter for rotating dog and chair
 
+<<<<<<< HEAD
 	//var roombaSteps = 900
 	//var roombaDirection = false
 	//curently removed for maintenance
@@ -408,9 +409,150 @@ function init() {
 				break
 		}
 	})
+=======
+  var roombaSteps = 900
+  var roombaDirection = false
+
+  var comandTab = true
+
+  function update(key) {
+    if (key == 'e') {
+      console.log('press')
+      if (roombaON == true) {
+        roombaON = false
+        return
+      }
+      roombaON = true
+    }
+
+    if (roombaON == true) {
+      if (roombaSteps == 0) {
+        roombaDirection = true
+      }
+
+      if (roombaSteps == 900) {
+        roombaDirection = false
+      }
+
+      if (roombaDirection == false) {
+        roombaSteps--
+        roomba.position.x += 0.01
+      }
+
+      if (roombaDirection == true) {
+        roombaSteps++
+        roomba.position.x -= 0.01
+      }
+    }
+
+    if (key == 't') {
+      if (toggler == true) {
+        scene.remove(spotLight)
+        scene.add(pointLight)
+        toggler = false
+        return
+      }
+
+      // light off
+      scene.remove(pointLight)
+      scene.add(spotLight)
+      toggler = true
+    }
+
+    // water the plant?
+    if (key == 'w') {
+      if (maxInc >= inc) {
+        var newleaf = flowers
+        if (inc % 2 == 0) {
+          newleaf.scale.x = flowers.scale.x + 0.001
+          newleaf.scale.y = flowers.scale.y + 0.001
+          newleaf.scale.z = flowers.scale.z + 0.01
+        }
+        inc += 1
+        scene.add(newleaf)
+      }
+    }
+
+    // channels
+    if (key == '1') {
+      var cartoonPNG = new THREE.TextureLoader().load(
+        'resource/rickandmorty.jpg'
+      )
+      var cartoon = new THREE.Mesh(
+        new THREE.BoxGeometry(0.01, 2, 4),
+        new THREE.MeshBasicMaterial({ map: cartoonPNG })
+      )
+      cartoon.position.y = 5
+      cartoon.position.x = -6.9
+      scene.add(cartoon)
+    }
+    if (key == '2') {
+      var cartoonPNG = new THREE.TextureLoader().load('resource/cartoon.jpg')
+      var cartoon = new THREE.Mesh(
+        new THREE.BoxGeometry(0.01, 2, 4),
+        new THREE.MeshBasicMaterial({ map: cartoonPNG })
+      )
+      cartoon.position.y = 5
+      cartoon.position.x = -6.9
+      scene.add(cartoon)
+    }
+    if (key == '3') {
+      var cartoonPNG = new THREE.TextureLoader().load('resource/acihayat.jpg')
+      var cartoon = new THREE.Mesh(
+        new THREE.BoxGeometry(0.01, 2, 4),
+        new THREE.MeshBasicMaterial({ map: cartoonPNG })
+      )
+      cartoon.position.y = 5
+      cartoon.position.x = -6.9
+      scene.add(cartoon)
+    }
+    if (key == '0') {
+      var cartoonPNG = new THREE.TextureLoader().load('')
+      var cartoon = new THREE.Mesh(
+        new THREE.BoxGeometry(0.01, 2, 4),
+        new THREE.MeshBasicMaterial({ map: cartoonPNG })
+      )
+      cartoon.position.y = 5
+      cartoon.position.x = -6.9
+      scene.add(cartoon)
+    }
+
+    if (key == ']') {
+      if (eggchair.rotation.z <= maxZminus) {
+        return
+      }
+      eggchair.rotation.z -= 0.01
+      dog.rotation.z -= 0.01
+    }
+
+    if (key == '[') {
+      if (eggchair.rotation.z >= maxZplus) {
+        return
+      }
+      eggchair.rotation.z += 0.01
+      dog.rotation.z += 0.01
+    }
+    if (key == 'c') {
+      if (comandTab == false) {
+        comandTab = true
+        $('#helpList').addClass('visible')
+      } else {
+        comandTab = false
+        $('#helpList').removeClass('visible')
+      }
+    }
+  }
+  $(document).keypress(function (event) {
+    update(event.key)
+  })
+>>>>>>> parent of 2a9f099 (Migrated from JQuerry and only used pure JS and optimised a bunch of code)
 }
 
 init()
 setTimeout(() => {
+<<<<<<< HEAD
 	alert("Press 'c' to view comand Tab")
+=======
+  alert("Press 'c' to view comand Tab")
+>>>>>>> parent of 2a9f099 (Migrated from JQuerry and only used pure JS and optimised a bunch of code)
 }, 1350)
