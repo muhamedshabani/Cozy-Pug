@@ -317,7 +317,7 @@ function init() {
 		renderer.render(scene, camera)
 	}
 
-	var maxZplus = (315 * Math.PI) / 180 // limitter for rotating dog and chair
+	var maxZplus = (315 * Math.PI) / 180
 	var maxZminus = (225 * Math.PI) / 180 // limitter for rotating dog and chair
 
 	//var roombaSteps = 900
